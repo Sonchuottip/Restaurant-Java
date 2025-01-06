@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="QLRestaurant1" default="default" basedir=".">
+	<description>Builds, tests, and runs the project QLRestaurant1.</description>
+
+	<!-- Thêm classpath với các thư viện Log4j và POI -->
+	<path id="classpath">
+		<!-- Thêm thư viện vào classpath từ thư mục lib -->
+		<fileset dir="lib">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+
+	<!-- Thêm pre-compile target -->
+	<target name="-pre-compile">
+		<mkdir dir="lib" />
+		<!-- Sao chép tất cả JAR từ thư mục lib vào thư mục classes -->
+		<copy todir="${build.classes.dir}">
+			<fileset dir="lib" includes="*.jar"/>
+		</copy>
+	</target>
+
+	<!-- Import file build-impl.xml của NetBeans -->
+	<import file="nbproject/build-impl.xml"/>
+</project>
